@@ -16,10 +16,11 @@ class PuppiesController < ApplicationController
     @puppy = Puppy.create({
       name: params[:name], 
       breed: params[:breed], 
-      age: params[:age]
+      age: params[:age],
+      owner_id: params[:owner_id]
     })
-
-    render json: @puppy
+    # render json: @puppy 
+    redirect_to "http://localhost:3001"
   end
 
   def update
@@ -27,7 +28,8 @@ class PuppiesController < ApplicationController
     @puppy.update({
       name: params[:name], 
       breed: params[:breed], 
-      age: params[:age]
+      age: params[:age],
+      owner_id: params[:owner_id]
     })
 
     render json: @puppy

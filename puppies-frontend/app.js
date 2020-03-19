@@ -3,7 +3,8 @@ console.log('Heyo!!!');
 function getThemPuppies() {
   fetch('http://localhost:3000/puppies')
     .then(response => response.json())
-    .then(result => displayPuppyData(result));
+    .then(result => displayPuppyData(result))
+    .then(result => adoptablePuppies(result));
 }
 
 // const puppies = [];
@@ -26,4 +27,14 @@ function displayPuppyData(puppies) {
     list.append(listItem);
   });
   document.body.append(list);
+  return puppies;
+}
+
+function adoptablePuppies(puppies) {
+  const puppyForm = document.getElementById('puppy-adoption-dropdown');
+  const buffaloButtBreath = document.createElement('buffaloButtBreath');
+  buffaloButtBreath.innerHTML = `<option value='487'>Billie Jean</option>`;
+  puppyForm.append(buffaloButtBreath);
+  console.log(puppyForm);
+  console.log(puppies);
 }
